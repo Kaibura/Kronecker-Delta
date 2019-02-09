@@ -15,7 +15,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.ManualDriveCommand;
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.PneumaticsSubsystem;
-
+import frc.robot.subsystems.RampSubsystem;
+import edu.wpi.first.cameraserver.CameraServer;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -25,9 +26,9 @@ import frc.robot.subsystems.PneumaticsSubsystem;
  * project.
  */
 public class Robot extends TimedRobot {
-  //public static ExampleSubsystem subsystem = new ExampleSubsystem();
   public static DriveSubsystem driveSubsystem = new DriveSubsystem();
   public static PneumaticsSubsystem pneumaticsSubsystem = new PneumaticsSubsystem();
+  public static RampSubsystem rampSubsystem = new RampSubsystem();
   public static OI oi;
 
   Command autonomousCommand;
@@ -43,6 +44,8 @@ public class Robot extends TimedRobot {
     chooser.setDefaultOption("Default Auto", new ManualDriveCommand());
     // chooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", chooser);
+  
+    CameraServer.getInstance().startAutomaticCapture();
   }
 
   /**

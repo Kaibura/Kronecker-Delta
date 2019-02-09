@@ -1,9 +1,9 @@
 [
   {
-    "artifact": "frcJava",
+    "artifact": "frcJava (in project DriveBase2.0)",
     "target": "roborio",
     "debugfile": "frcJava_roborio.debugconfig",
-    "project": "Drive Base",
+    "project": "DriveBase2.0",
     "language": "java"
   }
 ]

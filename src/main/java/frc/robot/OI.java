@@ -8,6 +8,10 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import frc.robot.commands.RampDown;
+import frc.robot.commands.RampUp;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -20,11 +24,24 @@ public class OI {
   // You create one by telling it which joystick it's on and which button
   // number it is.
   public Joystick stick = new Joystick(0);
+  Button rampUp = new JoystickButton(stick, RobotMap.RampUp);
+  Button rampDown = new JoystickButton(stick, RobotMap.RampDown);
+  Button grab = new JoystickButton(stick, RobotMap.sForwardButton);
+  Button release = new JoystickButton(stick, RobotMap.sReverseButton);
+
+  public OI() {
+    // button5 = up
+    rampUp.whenPressed(new RampUp());
+    // button3 = down
+    rampDown.whenPressed(new RampDown());
+  }
+  
+
   // Button button = new JoystickButton(stick, buttonNumber);
 
   // There are a few additional built in buttons you can use. Additionally,
   // by subclassing Button you can create custom triggers and bind those to
-  // commands the same as any other Button.O
+  // commands the same as any other Button.
 
   //// TRIGGERING COMMANDS WITH BUTTONS
   // Once you have a button, it's trivial to bind it to a button in one of
