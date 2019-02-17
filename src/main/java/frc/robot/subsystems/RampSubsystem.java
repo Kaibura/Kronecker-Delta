@@ -10,6 +10,7 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
+//import frc.robot.commands.MotorOff;
 
 /**
  * Add your docs here.
@@ -22,11 +23,16 @@ public class RampSubsystem extends Subsystem {
   public Victor rampMotor = new Victor(RobotMap.rampMotorPort);
 
   public void forwardMotor() {
-    rampMotor.set(0.25);
+    for(int i=0;i<4;i++){
+      rampMotor.set((RobotMap.initialRampMotorSpeed)+(i*0.05));
+    }
   }
 
   public void reverseMotor() {
-    rampMotor.set(-0.25);
+    for(int i=0;i<4;i++){
+      rampMotor.set(-(RobotMap.initialRampMotorSpeed)+(i*-0.05));
+    }
+    
   }
   
   public void turnOffMotor() {
@@ -40,6 +46,6 @@ public class RampSubsystem extends Subsystem {
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
-    setDefaultCommand(new MotorOff());
+    //setDefaultCommand(new MotorOff());
   }
 }

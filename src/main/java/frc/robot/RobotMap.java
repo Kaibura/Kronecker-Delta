@@ -33,19 +33,25 @@ public class RobotMap {
 
   // Ramp Motor Ports
   public static int rampMotorPort = 4;
-  // Ramp Controls
-  public static int rampUp = 5;
-  public static int rampDown = 3;
 
+  // Ramp Controls
+  public static int rampUpButton = 5;
+  public static int rampDownButton = 3;
+  public static int motorOffButton =  6;
+
+  //Motor Speed
+  public static double initialRampMotorSpeed = 0.05;
 
 
   // Solenoid Ports
-  public static int forwardSolenoidPort = 3;
-  public static int backwardSolenoidPort = 4;
+  public static int forwardSolenoidPort = 0;
+  public static int backwardSolenoidPort = 1;
 
   public static int sForwardButton = 11;
   public static int sReverseButton = 12;
   public static int sOffButton = 7;
+
+  
 
 
 

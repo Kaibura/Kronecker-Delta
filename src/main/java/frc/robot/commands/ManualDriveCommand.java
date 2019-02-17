@@ -24,7 +24,7 @@ public class ManualDriveCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    double move = -Robot.oi.stick.getY();
+    double move = Robot.oi.stick.getY();
     double turn = Robot.oi.stick.getX();
     Robot.driveSubsystem.manualDrive(move, turn);
 

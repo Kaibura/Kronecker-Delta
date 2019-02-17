@@ -12,6 +12,10 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.commands.RampDown;
 import frc.robot.commands.RampUp;
+import frc.robot.commands.HatchIntake;
+import frc.robot.commands.HatchRelease;
+import frc.robot.commands.MotorOff;
+
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -24,16 +28,25 @@ public class OI {
   // You create one by telling it which joystick it's on and which button
   // number it is.
   public Joystick stick = new Joystick(0);
-  Button rampUp = new JoystickButton(stick, RobotMap.RampUp);
-  Button rampDown = new JoystickButton(stick, RobotMap.RampDown);
-  Button grab = new JoystickButton(stick, RobotMap.sForwardButton);
-  Button release = new JoystickButton(stick, RobotMap.sReverseButton);
+  Button rampUp = new JoystickButton(stick, RobotMap.rampUpButton);
+  Button rampDown = new JoystickButton(stick, RobotMap.rampDownButton);
+  Button hatchIntake = new JoystickButton(stick, RobotMap.sReverseButton);
+  Button hatchRelease = new JoystickButton(stick, RobotMap.sForwardButton);
+  Button motorOff = new JoystickButton(stick, RobotMap.motorOffButton);
 
   public OI() {
+    motorOff.whenPressed(new MotorOff());
+    // hatchIntake = button 12
+    hatchIntake.whenPressed(new HatchIntake());
+    // hatchRelease = button 11
+    hatchRelease.whenPressed(new HatchRelease());
     // button5 = up
     rampUp.whenPressed(new RampUp());
     // button3 = down
     rampDown.whenPressed(new RampDown());
+    // button 6 = stopotor
+    motorOff.whenPressed(new MotorOff());
+    
   }
   
 

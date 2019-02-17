@@ -6,9 +6,8 @@
 /*----------------------------------------------------------------------------*/
 
 package frc.robot.subsystems;
-import edu.wpi.first.wpilibj.Compressor;
+// import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
-import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 
@@ -21,19 +20,20 @@ public class PneumaticsSubsystem extends Subsystem {
   // here. Call these from Commands.
 
   DoubleSolenoid solenoid = new DoubleSolenoid(RobotMap.forwardSolenoidPort, RobotMap.backwardSolenoidPort);
-  Compressor C = new Compressor(0);
+  // Compressor C = new Compressor(0);
   
   public void enableForward() {
-    solenoid.set(Value.kForward);
-   }
+    solenoid.set(DoubleSolenoid.Value.kForward);
+  }
  
-   public void enableReverse(){
-     solenoid.set(Value.kReverse);
-   }
+  public void enableReverse(){
+    solenoid.set(DoubleSolenoid.Value.kReverse);
+  }
  
-   public void off(){
-     solenoid.set(Value.kOff);
-   }
+  public void off(){
+    solenoid.set(DoubleSolenoid.Value.kOff);
+  }
+
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
