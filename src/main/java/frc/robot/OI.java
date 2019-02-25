@@ -28,8 +28,8 @@ public class OI {
   // You create one by telling it which joystick it's on and which button
   // number it is.
   public Joystick stick = new Joystick(0);
-  Button rampUp = new JoystickButton(stick, RobotMap.rampUpButton);
   Button rampDown = new JoystickButton(stick, RobotMap.rampDownButton);
+  Button rampUp = new JoystickButton(stick, RobotMap.rampUpButton);
   Button hatchIntake = new JoystickButton(stick, RobotMap.sReverseButton);
   Button hatchRelease = new JoystickButton(stick, RobotMap.sForwardButton);
   Button motorOff = new JoystickButton(stick, RobotMap.motorOffButton);
@@ -41,9 +41,12 @@ public class OI {
     // hatchRelease = button 11
     hatchRelease.whenPressed(new HatchRelease());
     // button5 = up
-    rampUp.whenPressed(new RampUp());
+
+    rampDown.whileHeld(new RampDown());
+    rampDown.whenReleased(new MotorOff());
     // button3 = down
-    rampDown.whenPressed(new RampDown());
+    rampUp.whileHeld(new RampUp());
+    rampUp.whenReleased(new MotorOff());
     // button 6 = stopotor
     motorOff.whenPressed(new MotorOff());
     
